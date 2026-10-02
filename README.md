@@ -1,66 +1,65 @@
-# 📊 Price Tracker Bot
+# Price Tracker Pro
 
-A Python-based multi-product price tracking tool that collects product data from websites and generates structured CSV and Excel reports.
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![Platform](https://img.shields.io/badge/platform-Windows-0078D6)
+![UI](https://img.shields.io/badge/UI-English%20%7C%20Turkish-00897B)
 
-## 🚀 Features
+A desktop price monitoring application with automated email alerts, Excel export and multilingual support.
 
-- Track multiple product URLs
-- Extract product name, price, and currency
-- Store historical price data (CSV)
-- Generate Excel reports with:
-  - History sheet
-  - Summary sheet
-  - Styled headers
-  - Color-coded price status
-- Detect price changes:
-  - Price increase 📈
-  - Price drop 📉
-  - No change ➖
+Designed to reduce manual price checking and automate recurring monitoring workflows.
 
-## 🛠️ Tech Stack
+![Price Tracker Pro screenshot](assets/screenshot.png)
 
-- Python
-- Requests
-- BeautifulSoup
-- Pandas
-- OpenPyXL
+## Features
 
-## 📂 Project Structure
+- **Multi-product tracking**: paste any number of product URLs, one per line, and check them all in one run
+- **Email alerts on price drops**: get an email with the old price, the new price and the link as soon as a price falls
+- **Excel reports**: styled `.xlsx` export with a history sheet, a summary sheet and color-coded price status
+- **Price history**: every check is stored in CSV, so you can see how prices change over time
+- **Live dashboard**: tracked products, total records, last status and report status at a glance
+- **Multilingual UI**: switch between English and Turkish from inside the app
+- **In-app email settings**: configure SMTP and send a test email without touching any code
 
-price-tracker-bot/
-│
-├── app.py
-├── parser.py
-├── utils.py
-├── config.py
-├── data/
-│ ├── price_history.csv
-│ └── price_report.xlsx
+## Tech Stack
 
+- Python, Tkinter (desktop UI)
+- Requests, BeautifulSoup, lxml (data collection)
+- Pandas, OpenPyXL (CSV history and Excel reports)
+- smtplib (email alerts)
 
-## ⚙️ Installation
+## Installation
 
 ```bash
+git clone https://github.com/GoodoldHuxton/price-tracker-pro.git
+cd price-tracker-pro
 pip install -r requirements.txt
+```
 
-▶️ Usage
+## Usage
 
-1. Add product URLs in config.py
-2. Run the script: python app.py
+1. Start the app:
+   ```bash
+   python gui.py
+   ```
+2. Paste the product URLs you want to monitor into **Tracked URLs**.
+3. *(Optional)* Fill in **Email Settings** and click **Send Test Email**. With Gmail, use an [App Password](https://support.google.com/accounts/answer/185833).
+4. Click **Start Tracking**. Results appear in the activity log; use **Open CSV** / **Open Excel** to see the reports.
 
-📈 Output
+Run it again later (or on a schedule with Windows Task Scheduler and `python app.py`) and you will be emailed whenever a price drops.
 
-CSV file with full history
-Excel report with summary and styling
+> The parser tries a list of common product-page selectors and `og:` / `product:price` meta tags, and comes preconfigured with demo URLs from [books.toscrape.com](https://books.toscrape.com). Supporting a new store is usually a matter of adding one or two selectors in `parser.py`. Always respect the terms of service of the sites you monitor.
 
-💡 Use Cases
+## What problem it solves
 
-E-commerce price monitoring
-Competitor tracking
-Market analysis
-Automation workflows
+Checking prices by hand is slow, easy to forget and impossible to keep doing every day. Price Tracker Pro turns it into a one-click (or fully scheduled) job:
 
-📌 Note
+- **Online sellers** keep an eye on competitor pricing
+- **Buyers and resellers** catch price drops the moment they happen
+- **Small businesses** get a ready-to-share Excel report instead of a messy spreadsheet
 
-This project is designed for educational and automation purposes.
-Always respect website terms of service when collecting data.
+## Contact / Available for freelance work
+
+Need a custom price tracker for your store, a scraper or another automation tool? I build small, practical tools like this one.
+
+- 📧 [skyiest15@gmail.com](mailto:skyiest15@gmail.com)
+- 💼 [LinkedIn](https://www.linkedin.com/in/yi%C4%9Fit-alp-bayar-96630b268)
